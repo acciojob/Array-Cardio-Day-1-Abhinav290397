@@ -30,7 +30,7 @@ const people = [
 // 1. Filter the list of inventors for those who were born in the 1500's and return the filtered array
 export function myfilter() {
 let ans = inventors.filter((x) => {
-	return x.year === 1500;
+	return x.year >= 1500 && x.year <= 1600;
 })
 }
 
@@ -48,7 +48,7 @@ export function map() {
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest and return the sorted array
 export function sort() {
-	inventors.sort((a, b) => {
+	return inventors.sort((a, b) => {
 		return b.year - a.year;
 	})
 }
@@ -58,9 +58,10 @@ export function sort() {
 // 4. How many years did all the inventors live?
 // Return the total number of years all the inventors lived
 export function reduce() {
-	let total = investors.reduce((prev, x) => {
+	let total = inventors.reduce((prev, x) => {
 		return  prev += (x.passed - x.year);
-	});
+	},0);
+	return total;
 }
 
 // 5. Sort the inventors by years lived and return the sorted array
@@ -68,16 +69,17 @@ export function sortbylived() {
 	let arr = inventors.sort((a,b) => {
 		return ((a.passed - a.year) - (b.passed - a.year));
 	});
+	return arr;
 }
 
 // 6. sort Exercise
 // Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
-	let arr1 = inventors.sort((a,b) => {
-		if(a.last > b.last)return 1;
-		if(a.last < b.last)return -1;
-		return 0;
-	})
+	return people.sort((a, b) => {
+    const [aLast, aFirst] = a.split(', ');
+    const [bLast, bFirst] = b.split(', ');
+    return aLast.localeCompare(bLast);
+});
 }
 
 // 7. Reduce Exercise
