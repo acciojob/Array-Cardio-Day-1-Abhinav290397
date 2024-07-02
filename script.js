@@ -51,7 +51,7 @@ export function map() {
 // 3. Sort the inventors by birthdate, oldest to youngest and return the sorted array
 export function sort() {
 	return inventors.sort((a, b) => {
-		return b.year - a.year;
+		return a.year - b.year;
 	})
 }
 
@@ -80,7 +80,7 @@ export function sortByLastName() {
 	return people.sort((a, b) => {
     const [aLast, aFirst] = a.split(', ');
     const [bLast, bFirst] = b.split(', ');
-    return aLast.localeCompare(bLast);
+    return aLast.localeCompare(bLast) || aFirst.localeCompare(bFirst);
 });
 }
 
@@ -91,12 +91,13 @@ const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bik
 export function reducedSum() {
     // Return an object containing transports as key and its number of occurances as the key's value
 	let transportCount = data.reduce((prev, x) => {
-		if(prev[x]){
-			prev[x]++;
-		}
-		else{
-			prev[x] = 1;
-		}
-		return prev;
-	},{});
+        if(prev[x]){
+            prev[x]++;
+        }
+        else{
+            prev[x] = 1;
+        }
+        return prev;
+    },{});
+    return transportCount;
 }
