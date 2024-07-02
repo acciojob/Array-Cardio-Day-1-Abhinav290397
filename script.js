@@ -31,7 +31,8 @@ const people = [
 export function myfilter() {
 let ans = inventors.filter((x) => {
 	return x.year >= 1500 && x.year <= 1600;
-})
+});
+	return ans;
 }
 
 // Array.prototype.map()
@@ -41,6 +42,7 @@ export function map() {
 	let ans = inventors.map((x) => {
 		return `${x.first} ${x.last}`;
 	})
+	return ans;
 
 }
 
