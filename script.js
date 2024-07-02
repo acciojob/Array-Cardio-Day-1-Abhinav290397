@@ -80,7 +80,7 @@ export function sortByLastName() {
     return people.sort((a, b) => {
         const [aLast, aFirst] = a.split(', ');
         const [bLast, bFirst] = b.split(', ');
-        return aLast.localeCompare(bLast) || aFirst.localeCompare(bFirst);
+        return aLast.localeCompare(bLast) || bFirst.localeCompare(aFirst); // Note the change here
     });
 }
 
