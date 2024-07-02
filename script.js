@@ -69,7 +69,7 @@ export function reduce() {
 // 5. Sort the inventors by years lived and return the sorted array
 export function sortbylived() {
 	let arr = inventors.sort((a,b) => {
-		return ((a.passed - a.year) - (b.passed - a.year));
+		return ((b.passed - b.year) - (a.passed - a.year));
 	});
 	return arr;
 }
@@ -77,11 +77,11 @@ export function sortbylived() {
 // 6. sort Exercise
 // Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
-	return people.sort((a, b) => {
-    const [aLast, aFirst] = a.split(', ');
-    const [bLast, bFirst] = b.split(', ');
-    return aLast.localeCompare(bLast) || aFirst.localeCompare(bFirst);
-});
+    return people.sort((a, b) => {
+        const [aLast, aFirst] = a.split(', ');
+        const [bLast, bFirst] = b.split(', ');
+        return aLast.localeCompare(bLast) || aFirst.localeCompare(bFirst);
+    });
 }
 
 // 7. Reduce Exercise
